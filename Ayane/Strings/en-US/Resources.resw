@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitleTextBlock.Text" xml:space="preserve">
+    <value>AYANE</value>
+  </data>
+  <data name="AudioEffectsPage_EchoDelayTextBlock.Text" xml:space="preserve">
+    <value>Delay(ms)</value>
+  </data>
+  <data name="AudioEffectsPage_EchoSwitch.Header" xml:space="preserve">
+    <value>Echo</value>
+  </data>
+  <data name="AudioEffectsPage_EqualizerSwitch.Header" xml:space="preserve">
+    <value>Equalizer</value>
+  </data>
+  <data name="AudioEffectsPage_LimiterLoudnessTextBlock.Text" xml:space="preserve">
+    <value>Loudness</value>
+  </data>
+  <data name="AudioEffectsPage_LimiterSwitch.Header" xml:space="preserve">
+    <value>Limiter</value>
+  </data>
+  <data name="AudioEffectsPage_NoteTextBlock.Text" xml:space="preserve">
+    <value>Supported formats: MP3, WMA, M4A, WAV</value>
+  </data>
+  <data name="AudioEffectsPage_ReverbDecayTextBlock.Text" xml:space="preserve">
+    <value>Decay(s)</value>
+  </data>
+  <data name="AudioEffectsPage_ReverbSwitch.Header" xml:space="preserve">
+    <value>Reverb</value>
+  </data>
+  <data name="ContextMenuItem_BrowseInFileExplorer.Text" xml:space="preserve">
+    <value>Browse in the File Explorer</value>
+  </data>
+  <data name="ContextMenuItem_Delete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ContextMenuItem_PlaylistSyncWithFolders.Text" xml:space="preserve">
+    <value>Sync with folders</value>
+  </data>
+  <data name="ContextMenuItem_Remove.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="CreatePlaylistPage_BrowseFoldersButton.Content" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="CreatePlaylistPage_CreatePlaylistButton.Content" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreatePlaylistPage_CreatePlaylistTitleTextBox.Header" xml:space="preserve">
+    <value>New playlist...</value>
+  </data>
+  <data name="CreatePlaylistPage_CreatePlaylistTitleTextBox.PlaceholderText" xml:space="preserve">
+    <value>PLAYLIST TITLE (REQUIRED)</value>
+  </data>
+  <data name="CreatePlaylistPage_DragFolderHereTipTextBlock.Text" xml:space="preserve">
+    <value>Please drop your media folders here</value>
+  </data>
+  <data name="CreatePlaylistPage_FilesCountTextBlock.Text" xml:space="preserve">
+    <value>Files: </value>
+  </data>
+  <data name="CreatePlaylistPage_FoldersCountTextBlock.Text" xml:space="preserve">
+    <value>Folders: </value>
+  </data>
+  <data name="CreatePlaylistPage_ProcessedFilesTextBlock.Text" xml:space="preserve">
+    <value>Processed Files:</value>
+  </data>
+  <data name="Drawer_MyPlaylistsHeaderTextBlock.Text" xml:space="preserve">
+    <value>MY PLAYLIST</value>
+  </data>
+  <data name="FirstLaunchPage_EnjoyMusicTextBlock.Text" xml:space="preserve">
+    <value>Enjoy your music life!</value>
+  </data>
+  <data name="FirstLaunchPage_WelcomeTextBlock.Text" xml:space="preserve">
+    <value>Hi, Welcome</value>
+  </data>
+  <data name="HelpPage_Answer_AboutMe.Text" xml:space="preserve">
+    <value>I'm UnsignedInt8, a developer. And I wrote Listen (a Music Player for  Windows Phone 7/8).</value>
+    <comment>Don't write anything here.</comment>
+  </data>
+  <data name="HelpPage_Answer_DroppingFolder.Text" xml:space="preserve">
+    <value>As the UWP restrictions, apps can't access external files more than 1,000. So, if you drop more than 1,000 files from your personal folders, the app will fail to access them. But you can import your songs from the Music Library folder without restrictions.</value>
+  </data>
+  <data name="HelpPage_Answer_PriceDifferences.Text" xml:space="preserve">
+    <value>There is no difference between the free-version and purchased-version. If you love this app, please buy it. Thank you! :)</value>
+  </data>
+  <data name="HelpPage_Answer_SwitchToPlayerInterface.Text" xml:space="preserve">
+    <value>Just double tap the rolling-cover, or scroll up your mouse wheel when the pointer is over the rolling-cover.</value>
+  </data>
+  <data name="HelpPage_Question_AboutMe.Text" xml:space="preserve">
+    <value>About Me</value>
+    <comment>Don't write anything here.</comment>
+  </data>
+  <data name="HelpPage_Question_DroppingFolders.Text" xml:space="preserve">
+    <value>Why should I import songs by dropping folders?</value>
+  </data>
+  <data name="HelpPage_Question_PriceDifferences.Text" xml:space="preserve">
+    <value>What's the difference between the free-version and purchased-version?</value>
+  </data>
+  <data name="HelpPage_Question_SwitchToPlayerInterface.Text" xml:space="preserve">
+    <value>How can I switch to the player interface?</value>
+  </data>
+  <data name="HelpPage_Title_OtherWorks.Text" xml:space="preserve">
+    <value>Relative Links</value>
+  </data>
+  <data name="MessageBox_Message_DeletePlaylist" xml:space="preserve">
+    <value>Are you sure to delete this playlist?</value>
+  </data>
+  <data name="MessageBox_Message_ListUpdating" xml:space="preserve">
+    <value>Songs list is updating...</value>
+  </data>
+  <data name="MessageBox_Message_ProcessedFiles" xml:space="preserve">
+    <value>Processed Files:</value>
+  </data>
+  <data name="MessageBox_Message_RemoveSong" xml:space="preserve">
+    <value>Are you sure to remove this song?</value>
+  </data>
+  <data name="MessageBox_Message_SyncPlaylist" xml:space="preserve">
+    <value>Synchronizing, please wait a moment...</value>
+  </data>
+  <data name="MessageBox_Message_TokensAlmostFull" xml:space="preserve">
+    <value>You have imported {0} files or folders to this app (Max: 1,000). The UWP platform will refuse to store  new songs, if you use all the space.  Please put your music files into the Music Library, so you can import songs without limitations.</value>
+  </data>
+  <data name="MessageBox_Message_TokensFull" xml:space="preserve">
+    <value>The UWP app only can record 1,000 files from your disk. Now, you have imported 1,000 files or folders, and you can't import any new songs to the app. Please put your songs in the Music Library, so you can import your songs from the Music Library without limitations.</value>
+  </data>
+  <data name="MessageBox_Title_DeletePlaylist" xml:space="preserve">
+    <value>Delete Playlist</value>
+  </data>
+  <data name="MessageBox_Title_JustAMinute" xml:space="preserve">
+    <value>Just a minute</value>
+  </data>
+  <data name="MessageBox_Title_NegativeButton" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="MessageBox_Title_PositiveButton" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="MessageBox_Title_RemoveSong" xml:space="preserve">
+    <value>Remove item</value>
+  </data>
+  <data name="MessageBox_Title_SyncPlaylist" xml:space="preserve">
+    <value>Playlist Synchronization</value>
+  </data>
+  <data name="MessageBox_Title_Warning" xml:space="preserve">
+    <value>WARNING</value>
+  </data>
+  <data name="Message_NoFoldersToSync" xml:space="preserve">
+    <value>There is no folder to sync.</value>
+  </data>
+  <data name="Message_PlaylistTitleExist" xml:space="preserve">
+    <value>You can't create the playlist which the title used by other playlist.</value>
+  </data>
+  <data name="Playlists_Title_Favorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="SettingsPage_AutoPlaySwitch.Header" xml:space="preserve">
+    <value>Play music when app launches</value>
+  </data>
+  <data name="SettingsPage_KeepScreenOn.Header" xml:space="preserve">
+    <value>Keep the screen always on</value>
+  </data>
+  <data name="SleepingModePage_BeenStartedTextBlock.Text" xml:space="preserve">
+    <value>The Sleeping Mode has been started.</value>
+  </data>
+  <data name="SleepingModePage_CancelTextBlock.Text" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="SleepingModePage_IntroductionTextBlock.Text" xml:space="preserve">
+    <value>Stop the playback when timer ends</value>
+  </data>
+  <data name="SleepingModePage_MinutesModeButton.Content" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="SleepingModePage_OkButton.Content" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="SleepingModePage_SongsCountModeButton.Content" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="Text_Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Text_Albums" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="Text_Artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="Text_Artists" xml:space="preserve">
+    <value>Artists</value>
+  </data>
+  <data name="Text_Song" xml:space="preserve">
+    <value>Song</value>
+  </data>
+  <data name="Text_Songs" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="Text_Title_App" xml:space="preserve">
+    <value>AYANE</value>
+  </data>
+  <data name="Text_Title_AudioEffects" xml:space="preserve">
+    <value>Audio Effects</value>
+  </data>
+  <data name="Text_Title_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Text_Title_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Text_Title_SleepingMode" xml:space="preserve">
+    <value>Sleeping Mode</value>
+  </data>
+  <data name="ToolTip_AudioEffects.Text" xml:space="preserve">
+    <value>Audio Effects</value>
+  </data>
+  <data name="ToolTip_Help.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ToolTip_NewPlaylist.Text" xml:space="preserve">
+    <value>New Playlist</value>
+  </data>
+  <data name="ToolTip_Settings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ToolTip_SleepingMode.Text" xml:space="preserve">
+    <value>Sleeping Mode</value>
+  </data>
+  <data name="TopContentPage_AlbumsPivotItem.Header" xml:space="preserve">
+    <value>ALBUMS</value>
+  </data>
+  <data name="TopContentPage_ArtistPivotItem.Header" xml:space="preserve">
+    <value>ARTISTS</value>
+  </data>
+  <data name="TopContentPage_GenresPivotItem.Header" xml:space="preserve">
+    <value>GENRES</value>
+  </data>
+  <data name="TopContentPage_SongsListViewTip_DropFolders.Text" xml:space="preserve">
+    <value>Note: Dropping files here is not appropriate. Folders are recommended.</value>
+  </data>
+  <data name="TopContentPage_SongsPivotItem.Header" xml:space="preserve">
+    <value>SONGS</value>
+  </data>
+</root>

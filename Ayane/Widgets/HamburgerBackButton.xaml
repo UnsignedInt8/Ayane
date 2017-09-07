@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="Ayane.Widgets.HamburgerBackButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Widgets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Ayane.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="32"
+    d:DesignWidth="32">
+
+    <Grid Background="Transparent">
+
+        <Grid.Resources>
+            <SolidColorBrush x:Key="TitleBarIconAccentBrush" Color="{StaticResource TitleBarForegroundColor}" />
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="RenderTransformOrigin" Value=".5, .5" />
+                <Setter Property="Foreground" Value="{StaticResource TitleBarIconAccentBrush}" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+
+            <Storyboard x:Name="ToBackAnimation">
+                <DoubleAnimation Storyboard.TargetName="MenuIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" From="0" To="90" Duration="0:0:0.25" />
+                <DoubleAnimation Storyboard.TargetName="MenuIcon" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.25" />
+                <DoubleAnimation Storyboard.TargetName="BackIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" From="-90" To="0" Duration="0:0:0.25" />
+                <DoubleAnimation Storyboard.TargetName="BackIcon" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.25" />
+            </Storyboard>
+            
+            <Storyboard x:Name="ToMenuAnimation">
+                <DoubleAnimation Storyboard.TargetName="MenuIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" From="-90" To="0" Duration="0:0:0.25" />
+                <DoubleAnimation Storyboard.TargetName="MenuIcon" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.25" />
+                <DoubleAnimation Storyboard.TargetName="BackIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" From="0" To="90" Duration="0:0:0.25" />
+                <DoubleAnimation Storyboard.TargetName="BackIcon" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.25" />
+            </Storyboard>
+        </Grid.Resources>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="MenuIconStates">
+                <VisualState x:Name="NormalState">
+                    <Storyboard>
+
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="PointerOverState">
+                    <Storyboard>
+                        <ColorAnimation To="LightGray" Storyboard.TargetName="MenuIcon" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.1"/>
+                        <ColorAnimation To="LightGray" Storyboard.TargetName="BackIcon" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.1"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="PressedState">
+                    <Storyboard>
+                        <ColorAnimation To="Black" Storyboard.TargetName="MenuIcon" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.1"/>
+                        <ColorAnimation To="Black" Storyboard.TargetName="BackIcon" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.1"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <TextBlock x:Name="BackIcon" Text="&#xE0A6;" Opacity="0">
+            <TextBlock.RenderTransform>
+                <CompositeTransform />
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock x:Name="MenuIcon" Text="&#xE700;" Opacity="1" FontSize="15" Margin="0, -1, 0, 0">
+            <TextBlock.RenderTransform>
+                <CompositeTransform />
+            </TextBlock.RenderTransform>
+        </TextBlock>
+    </Grid>
+</UserControl>

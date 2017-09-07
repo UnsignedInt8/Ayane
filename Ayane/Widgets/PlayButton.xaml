@@ -1,0 +1,74 @@
+﻿<UserControl
+    x:Class="Ayane.Widgets.PlayButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Widgets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="300">
+
+    <Grid Padding="{x:Bind Padding}" Background="Transparent">
+
+        <Grid.Resources>
+            <Storyboard x:Name="ToPauseState" >
+                <DoubleAnimation To="90" Storyboard.TargetName="PlayIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Duration="0:0:0.25"/>
+                <DoubleAnimation To="0" Storyboard.TargetName="PlayIcon" Storyboard.TargetProperty="Opacity" Duration="0:0:0.2"/>
+                <DoubleAnimation To="0" From="-90" Storyboard.TargetName="PauseIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Duration="0:0:0.25"/>
+                <DoubleAnimation To="1" From="0" Storyboard.TargetName="PauseIcon" Storyboard.TargetProperty="Opacity" Duration="0:0:0.25"/>
+            </Storyboard>
+
+            <Storyboard x:Name="ToPlayState">
+                <DoubleAnimation To="0" From="-90" Storyboard.TargetName="PlayIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Duration="0:0:0.25" />
+                <DoubleAnimation To="1" Storyboard.TargetName="PlayIcon" Storyboard.TargetProperty="Opacity" Duration="0:0:0.25"/>
+                <DoubleAnimation To="90" Storyboard.TargetName="PauseIcon" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Duration="0:0:0.25"/>
+                <DoubleAnimation To="0" Storyboard.TargetName="PauseIcon" Storyboard.TargetProperty="Opacity" Duration="0:0:0.2"/>
+            </Storyboard>
+
+            <Style TargetType="Path">
+                <Setter Property="Stretch" Value="Uniform" />
+                <Setter Property="RenderTransformOrigin" Value=".5, .5" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+        </Grid.Resources>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="PointerOver">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PlayIcon" Storyboard.TargetProperty="Fill">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PauseIcon" Storyboard.TargetProperty="Fill">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PlayIcon" Storyboard.TargetProperty="Fill">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Gray" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PauseIcon" Storyboard.TargetProperty="Fill">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Gray" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Path x:Name="PlayIcon" Height="24" Fill="{x:Bind Foreground}" Data="M197,96.25L202.624984741211,97.6875076293945 208.5,100.5 427.5,236.5 427.812469482422,236.75 428.75,237.5 431.5,240.25 434.25,244.25 435.1875,246.6875 435.5,249.5 435.1875,252.375 434.25,255 432.9375,257.3125 431.5,259.25 430.0625,260.8125 428.75,262 427.812469482422,262.75 427.5,263 208.5,398.5 205.546859741211,400.28125 202.687484741211,401.625 199.921859741211,402.53125 197.25,403 192.3125,402.8125 188,401.25 184.4375,398.3125 181.75,394 180.0625,388.375 179.5,381.5 179.5,118 180.0625,111.0625 181.75,105.25 184.375,100.75 187.75,97.75 191.9375,96.25 197,96.25z">
+            <Path.RenderTransform>
+                <CompositeTransform />
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Name="PauseIcon" Width="23" Opacity="0" Fill="{x:Bind Foreground}" Data="M60,34.5L62.2734336853027,34.9453163146973 64.21875,36.28125 65.5546875,38.2265663146973 66,40.5 66,64.5 65.5546875,66.7734375 64.21875,68.71875 62.2734336853027,70.0546875 60,70.5 57.7265586853027,70.0546875 55.78125,68.71875 54.4453086853027,66.7734375 54,64.5 54,40.5 54.4453086853027,38.2265663146973 55.78125,36.28125 57.7265586853027,34.9453163146973 60,34.5z M36,34.5L38.2734375,34.9453163146973 40.21875,36.28125 41.5546875,38.2265663146973 42,40.5 42,64.5 41.5546875,66.7734375 40.21875,68.71875 38.2734375,70.0546875 36,70.5 33.7265625,70.0546875 31.78125,68.71875 30.4453105926514,66.7734375 30,64.5 30,40.5 30.4453105926514,38.2265663146973 31.78125,36.28125 33.7265625,34.9453163146973 36,34.5z">
+            <Path.RenderTransform>
+                <CompositeTransform Rotation="0" TranslateX="-2" />
+            </Path.RenderTransform>
+        </Path>
+    </Grid>
+</UserControl>

@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Ayane.Pages.FirstLaunchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource AccentBrush}">
+        <Grid.Resources>
+            <Storyboard x:Name="WelcomeAnimation" Completed="WelcomeAnimation_OnCompleted" Duration="0:0:6" BeginTime="0:0:1">
+                <DoubleAnimation From="40" To="0" Storyboard.TargetName="Line1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" BeginTime="0:0:0.5" Duration="0:0:0.5" />
+                <DoubleAnimation To="1" From="0" Storyboard.TargetName="Line1" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5" BeginTime="0:0:0.5" />
+                <DoubleAnimation From="40" To="0" Storyboard.TargetName="Line2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" BeginTime="0:0:2" Duration="0:0:0.5" />
+                <DoubleAnimation To="1" From="0" Storyboard.TargetName="Line2" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5" BeginTime="0:0:2" />
+            </Storyboard>
+            
+            <Storyboard x:Name="TransitionAnimation" Completed="TransitionAnimation_OnCompleted">
+                <DoubleAnimation To="2000" Storyboard.TargetName="MaskEllipse" Storyboard.TargetProperty="Width" Duration="0:0:1" EnableDependentAnimation="True" />
+                <DoubleAnimation To="2000" Storyboard.TargetName="MaskEllipse" Storyboard.TargetProperty="Height" Duration="0:0:1" EnableDependentAnimation="True"/>
+            </Storyboard>
+        </Grid.Resources>
+
+        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xeb52;"  FontSize="128" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Opacity=".15" Margin="-20, -8"/>
+        <TextBlock Text="Music" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="56" Opacity=".15" Foreground="White" Margin="0, 0, -6, 0" TextLineBounds="Tight" FontWeight="Bold" Typography.Capitals="SmallCaps"/>
+
+        <StackPanel VerticalAlignment="Center" Padding="18, 0">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="Margin" Value="0, 6, 0, 0" />
+                    <Setter Property="Opacity" Value="0" />
+                    <Setter Property="RenderTransformOrigin" Value=".5, .5" />
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock x:Uid="FirstLaunchPage_WelcomeTextBlock" x:Name="Line1" Text="Hi, Welcome">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Uid="FirstLaunchPage_EnjoyMusicTextBlock" x:Name="Line2" Text="Enjoy your music life!">
+                <TextBlock.RenderTransform>
+                    <CompositeTransform />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </StackPanel>
+
+        <Ellipse Fill="White" Width="0" Height="0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="MaskEllipse" />
+    </Grid>
+</Page>

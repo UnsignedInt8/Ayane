@@ -1,0 +1,243 @@
+﻿<Page
+    x:Class="Ayane.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Ayane.Controls"
+    xmlns:widgets="using:Ayane.Widgets"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    x:Name="Root"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MediaLibraryViewModel}">
+
+    <Page.Resources>
+        <Style x:Key="ListBoxMenuItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="{StaticResource SubtleBrush}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TabNavigation" Value="Local" />
+            <Setter Property="Height" Value="48" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="LayoutRoot" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.25" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ColorAnimation To="{ThemeResource SystemListAccentMediumColor}" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="White" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="PressedBackground" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.25" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="InnerGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="White" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(ContentPresenter.Foreground).(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedUnfocused">
+                                        <Storyboard>
+                                            <ColorAnimation To="{ThemeResource AccentColor}" Storyboard.TargetName="InnerGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="White" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(ContentPresenter.Foreground).(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedDisabled">
+                                        <Storyboard>
+                                            <ColorAnimation To="{ThemeResource SystemBaseMediumColor}" Storyboard.TargetName="InnerGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="{ThemeResource SystemBaseLowColor}" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(ContentPresenter.Foreground).(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedPointerOver">
+                                        <Storyboard>
+                                            <ColorAnimation To="{ThemeResource SystemListAccentHighColor}" Storyboard.TargetName="InnerGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="White" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(ContentPresenter.Foreground).(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedPressed">
+                                        <Storyboard>
+                                            <ColorAnimation To="{ThemeResource SystemListAccentHighColor}" Storyboard.TargetName="InnerGrid" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="White" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(ContentPresenter.Foreground).(SolidColorBrush.Color)" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FocusVisualWhite" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                            <DoubleAnimation Storyboard.TargetName="FocusVisualBlack" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused" />
+                                    <VisualState x:Name="PointerFocused" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="InnerGrid" Background="Transparent">
+                                <Rectangle x:Name="PressedBackground" Fill="{StaticResource ContrastBackgroundBrush}" Opacity="0" />
+                                <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" />
+                                <Rectangle x:Name="FocusVisualWhite" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeEndLineCap="Square" StrokeDashArray="1,1" Opacity="0" StrokeDashOffset=".5" />
+                                <Rectangle x:Name="FocusVisualBlack" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeEndLineCap="Square" StrokeDashArray="1,1" Opacity="0" StrokeDashOffset="1.5" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Canvas.ZIndex="1" Margin="0, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <controls:FlyTextBlock x:Name="AppTitleTextBlock" x:Uid="AppTitleTextBlock" Grid.Column="1" Text="上月绫音" Typography.Capitals="SmallCaps"  IsHitTestVisible="False" Foreground="{StaticResource TitleBarForegroundBrush}" FontFamily="Segoe UI" FontSize="14" Margin="-2, 6, 0, 0" HorizontalAlignment="Left" />
+            <Rectangle x:Name="TitleBarHolder" Fill="Transparent" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" />
+            <widgets:HamburgerBackButton x:Name="HamburgerButton" Grid.Column="0" MenuClicked="HamburgBackButton_OnMenuClicked" BackClicked="HamburgerButton_OnBackClicked" Foreground="{StaticResource TitleBarForegroundBrush}" />
+        </Grid>
+
+        <TextBlock Text="...&gt;_&lt;..." FontSize="64" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Foreground="LightGray" Opacity=".5" FontFamily="Segoe UI" Visibility="{x:Bind ViewModel.HasAnyPlaylist, Mode=OneWay, Converter={StaticResource ReverseBooleanToVisibilityConverter}}" />
+
+        <SplitView x:Name="SplitView" Grid.Row="0" Grid.RowSpan="3" IsPaneOpen="True" PaneBackground="#05ffffff" PaneClosing="SplitView_OnPaneClosing">
+            <SplitView.Pane>
+                <Grid Margin="0, 0, 8, 0">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#B3FFFFFF" />
+                    </Grid.Background>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <controls1:DropShadowPanel Grid.Row="0" Grid.RowSpan="5" HorizontalAlignment="Right" BlurRadius="12">
+                        <Rectangle Width="1" Fill="LightGray" />
+                    </controls1:DropShadowPanel>
+                    <controls:BlurGlass Grid.RowSpan="5" BlurOn="True" BlurAmount="50" Grid.Row="0"/>
+
+                    <TextBlock x:Uid="Drawer_MyPlaylistsHeaderTextBlock" Grid.Row="1" Text="MY PLAYLISTS" Typography.Capitals="AllPetiteCaps" Foreground="{StaticResource SubtleBrush}" FontSize="13" Margin="16, 3, 0, 14"/>
+                    <Rectangle Grid.Row="2" VerticalAlignment="Top" Height="1" Fill="{StaticResource LightSubtleBrush}" Opacity=".5" />
+
+                    <Grid Grid.Row="2" Visibility="{x:Bind ViewModel.HasAnyPlaylist, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}" >
+                        <Grid.Resources>
+                            <Style TargetType="Line">
+                                <Setter Property="Stroke" Value="{StaticResource AccentBrush}" />
+                                <Setter Property="Opacity" Value=".5" />
+                            </Style>
+                        </Grid.Resources>
+
+                        <Line StrokeThickness="4" X1="0" X2="3840" VerticalAlignment="Top" StrokeDashArray="1, 1" />
+                        <Line StrokeThickness="2" X1="0" X2="3840" VerticalAlignment="Bottom" StrokeDashArray="2, 2" />
+                        <Line StrokeThickness="4" Y1="0" Y2="3000" HorizontalAlignment="Left" StrokeDashArray="1, 1" />
+                        <Line StrokeThickness="2" Y1="0" Y2="3000" HorizontalAlignment="Right" StrokeDashArray="2, 2" />
+
+                        <StackPanel VerticalAlignment="Center" Opacity=".75">
+                            <Path Fill="{StaticResource LightSubtleBrush}" Width="120" Opacity=".5" Data="M416 32h-320l-96 96v336c0 8.837 7.163 16 16 16h480c8.836 0 16-7.163 16-16v-336l-96-96zM256 416l-160-128h96v-96h128v96h96l-160 128zM77.255 96l32-32h293.489l32 32h-357.489z" />
+                            <TextBlock x:Uid="CreatePlaylistPage_DragFolderHereTipTextBlock" Foreground="{StaticResource LightSubtleBrush}" HorizontalAlignment="Center" Text="Please drag your media folders here" Margin="0, 6, 0, 0"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ListBox AllowDrop="True" DragOver="{x:Bind ViewModel.OnNewPlaylistDragOver}" Drop="{x:Bind ViewModel.OnNewPlaylistDrop}" Background="{x:Null}" ItemContainerStyle="{StaticResource ListBoxMenuItemStyle}" ItemsSource="{x:Bind ViewModel.PlaylistsTitle, Mode=OneWay}" ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectedItem="{x:Bind ViewModel.SelectedPlaylistTitle, Mode=TwoWay}" Grid.Row="2" SelectionChanged="Drawer_OnSelectionChanged">
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Background="Transparent">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.ContextFlyout>
+                                        <MenuFlyout>
+                                            <MenuFlyoutItem x:Uid="ContextMenuItem_PlaylistSyncWithFolders" Text="Sync with folders" Command="{Binding ElementName=Root, Path=DataContext.SyncPlaylistWithFoldersCommand}" CommandParameter="{Binding}"/>
+                                            <MenuFlyoutItem x:Uid="ContextMenuItem_Delete" Text="Delete" Command="{Binding ElementName=Root, Path=DataContext.DeletePlaylistCommand}" CommandParameter="{Binding}" />
+                                        </MenuFlyout>
+                                    </Grid.ContextFlyout>
+
+                                    <TextBlock Text="&#xE90B;" FontFamily="Segoe MDL2 Assets" FontSize="15" Margin="{StaticResource AppHorizontalMargin}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding}" Grid.Column="1"  FontSize="15" VerticalAlignment="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Rectangle Grid.Row="4" VerticalAlignment="Top" Height="1" Fill="{StaticResource LightSubtleBrush}" Opacity=".5"/>
+                    <Rectangle Grid.Row="0" Grid.RowSpan="5" HorizontalAlignment="Right" Width="1" Fill="{StaticResource LightSubtleBrush}" Opacity=".5" />
+
+                    <StackPanel Grid.Row="4" Orientation="Horizontal" Padding="1, 0">
+                        <Button x:Name="SleepModeButton" Content="&#xE916;" Click="SleepingMode_OnClick">
+                            <ToolTipService.ToolTip>
+                                <TextBlock x:Uid="ToolTip_SleepingMode" Text="Sleeping Mode" />
+                            </ToolTipService.ToolTip>
+                        </Button>
+                        <Button x:Name="SettingsButton" Content="&#xE713;" Click="Settings_OnClick">
+                            <ToolTipService.ToolTip>
+                                <TextBlock x:Uid="ToolTip_Settings" Text="Settings"/>
+                            </ToolTipService.ToolTip>
+                        </Button>
+                        <Button x:Name="AudioEffectsButton" Content="&#xE8D6;" Click="AudioEffectsButton_OnClick">
+                            <ToolTipService.ToolTip>
+                                <TextBlock x:Uid="ToolTip_AudioEffects" Text="Audio Effects" />
+                            </ToolTipService.ToolTip>
+                        </Button>
+                        <Button x:Name="HelpButton" Content="&#xED54;" Click="HelpButton_OnClick" FontSize="19">
+                            <ToolTipService.ToolTip>
+                                <TextBlock x:Uid="ToolTip_Help" Text="Help" />
+                            </ToolTipService.ToolTip>
+                        </Button>
+                    </StackPanel>
+
+                    <Button Content="&#xE710;" Grid.Row="4" FontSize="19" HorizontalAlignment="Right" Click="CreatePlaylistButton_OnClick">
+                        <ToolTipService.ToolTip>
+                            <TextBlock x:Uid="ToolTip_NewPlaylist" Text="New Playlist" />
+                        </ToolTipService.ToolTip>
+                    </Button>
+
+                    <Grid.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource MDL2ButtonStyle}"></Style>
+                    </Grid.Resources>
+
+                </Grid>
+            </SplitView.Pane>
+
+            <Grid>
+                <Frame x:Name="ContentFrame" Margin="0, 32, 0, 0"/>
+                <widgets:NowPlayingSpotlight x:Name="Spotlight" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsPlaying="{x:Bind PlayerViewModel.IsPlaying, Mode=OneWay}" Position="{x:Bind PlayerViewModel.Position, Mode=OneWay}" Song="{x:Bind PlayerViewModel.ActiveSong, Mode=OneWay}" State="{x:Bind PlayerViewModel.State, Mode=OneWay}" Foreground="{StaticResource LightAccentBrush}" PlayCommand="{x:Bind PlayerViewModel.PlayCommand}" PauseCommand="{x:Bind PlayerViewModel.PauseCommand}" DoubleTapped="Spotlight_OnDoubleTapped"/>
+            </Grid>
+
+        </SplitView>
+
+        <Rectangle x:Name="Mask" Grid.Row="0" Grid.RowSpan="2" Fill="Black" Opacity="0" IsHitTestVisible="False" />
+        <local:MiniPlayerPage x:Name="PlayerPage" Grid.RowSpan="2" Grid.Row="0" Visibility="Collapsed" IsHitTestVisible="False" Canvas.ZIndex="2" Hiding="PlayerPage_OnHiding" HidingCompleted="PlayerPage_OnHidingCompleted"/>
+    </Grid>
+</Page>

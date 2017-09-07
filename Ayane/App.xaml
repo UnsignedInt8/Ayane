@@ -1,0 +1,24 @@
+﻿<Application
+    x:Class="Ayane.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane"
+    xmlns:viewModels="using:Ayane.ViewModels"
+    xmlns:frameworkEx="using:Ayane.FrameworkEx"
+    xmlns:converters="using:Ayane.Common.Converters"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Generic.xaml" />
+                <ResourceDictionary Source="Themes/PagesResource.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <viewModels:ViewModelLocator x:Key="ViewModelLocator"/>
+            <frameworkEx:BooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" True="Collapsed" False="Visible"/>
+            <frameworkEx:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" True="Visible" False="Collapsed" />
+            <converters:TimeSpanToStringConverter x:Key="TimeSpanToStringConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

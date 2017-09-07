@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="Ayane.Pages.CreatePlaylistPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:frameworkEx="using:Ayane.FrameworkEx"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MediaLibraryViewModel.TemporaryPlaylistViewModel}">
+
+    <Page.Resources>
+        <frameworkEx:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+        
+        <Storyboard x:Name="TransitionToAnimation">
+            <DoubleAnimation To="1" From="0" Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Opacity" Duration="0:0:0.5" />
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid x:Name="RootGrid" Padding="16, 0, 16, 12">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="DraggingState">
+                <VisualState x:Name="DragNormalState">
+                    <Storyboard>
+                        <ColorAnimation To="Gray" Storyboard.TargetName="L1" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="Gray" Storyboard.TargetName="L2" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="Gray" Storyboard.TargetName="L3" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="Gray" Storyboard.TargetName="L4" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="{Binding Source={StaticResource ThemeManager}, Path=LightSubtleColor}" Storyboard.TargetName="DragIcon" Storyboard.TargetProperty="(UIElement.Fill).(SolidColorBrush.Color)" Duration="0:0:0.3" />
+                        <ColorAnimation To="{Binding Source={StaticResource ThemeManager}, Path=LightSubtleColor}" Storyboard.TargetName="DragTipTextBlock" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.3" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="DragOverState">
+                    <Storyboard>
+                        <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="L1" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="L2" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="L3" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="L4" Storyboard.TargetProperty="(UIElement.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.5" />
+                        <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="DragIcon" Storyboard.TargetProperty="(UIElement.Fill).(SolidColorBrush.Color)" Duration="0:0:0.3" />
+                        <ColorAnimation To="{StaticResource AccentColor}" Storyboard.TargetName="DragTipTextBlock" Storyboard.TargetProperty="(UIElement.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.3" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Uid="CreatePlaylistPage_CreatePlaylistTitleTextBox" x:Name="PlaylistTitleTextBox" Header="New playlist..." Text="{x:Bind ViewModel.Title, Mode=TwoWay}" Foreground="{StaticResource AccentBrush}" PlaceholderText="PLAYLIST TITLE (REQUIRED)" Margin="0, 0, 0, 6" MaxLength="40" TextChanged="{x:Bind ViewModel.OnTitleTextBoxChanged}"/>
+
+        <Grid x:Name="DragArea" Grid.Row="1" AllowDrop="True" DragOver="{x:Bind ViewModel.OnDragOver}" DragLeave="DragArea_OnDragLeave" DropCompleted="DragArea_OnDropCompleted" Drop="{x:Bind ViewModel.OnDrop}" Background="Transparent">
+
+            <Grid.Resources>
+                <Style TargetType="Line">
+                    <Setter Property="Stroke" Value="Gray" />
+                    <Setter Property="Opacity" Value=".5" />
+                </Style>
+            </Grid.Resources>
+
+            <Line x:Name="L1" StrokeThickness="4" X1="0" X2="3840" VerticalAlignment="Top" StrokeDashArray="1, 1" />
+            <Line x:Name="L2" StrokeThickness="2" X1="0" X2="3840" VerticalAlignment="Bottom" StrokeDashArray="2, 2" />
+            <Line x:Name="L3" StrokeThickness="4" Y1="0" Y2="3000" HorizontalAlignment="Left" StrokeDashArray="1, 1" />
+            <Line x:Name="L4" StrokeThickness="2" Y1="0" Y2="3000" HorizontalAlignment="Right" StrokeDashArray="2, 2" />
+
+            <StackPanel VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasFiles, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}">
+                <Path x:Name="DragIcon" Fill="{StaticResource LightSubtleBrush}" Width="120" Opacity=".5" Data="M416 32h-320l-96 96v336c0 8.837 7.163 16 16 16h480c8.836 0 16-7.163 16-16v-336l-96-96zM256 416l-160-128h96v-96h128v96h96l-160 128zM77.255 96l32-32h293.489l32 32h-357.489z" />
+                <TextBlock x:Uid="CreatePlaylistPage_DragFolderHereTipTextBlock" x:Name="DragTipTextBlock" Foreground="{StaticResource LightSubtleBrush}" HorizontalAlignment="Center" Text="Please drag your media folders here" Margin="0, 6, 0, 0"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center" Visibility="{x:Bind ViewModel.HasFiles, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
+                <Path Opacity=".5" Height="110" Fill="{StaticResource LightSubtleBrush}" Data="M458.903 114.538c-11.104-15.146-26.587-32.85-43.589-49.852s-34.706-32.482-49.852-43.589c-25.787-18.91-38.296-21.097-45.462-21.097h-248c-22.056 0-40 17.944-40 40v432c0 22.056 17.942 40 40 40h368c22.056 0 40-17.944 40-40v-312c0-7.166-2.186-19.675-21.097-45.462v0 0zM392.687 87.313c15.35 15.35 27.4 29.199 36.29 40.687h-76.977v-76.973c11.49 8.89 25.339 20.939 40.687 36.286v0 0zM448 472c0 4.336-3.664 8-8 8h-368c-4.336 0-8-3.664-8-8v-432c0-4.336 3.664-8 8-8 0 0 247.978-0.001 248 0v112c0 8.836 7.161 16 16 16h112v312z M128 32h64v32h-64v-32z M192 64h64v32h-64v-32z M128 96h64v32h-64v-32z M192 128h64v32h-64v-32z M128 160h64v32h-64v-32z M192 192h64v32h-64v-32z M128 224h64v32h-64v-32z M192 256h64v32h-64v-32z M128 424c0 13.2 10.8 24 24 24h80c13.2 0 24-10.8 24-24v-80c0-13.2-10.8-24-24-24h-40v-32h-64v136zM224 384v32h-64v-32h64z" />
+                <TextBlock Foreground="{StaticResource LightSubtleBrush}" HorizontalAlignment="Center" Margin="0, 6, 0, 0" Visibility="{x:Bind ViewModel.FolderCount, Converter={StaticResource IntToVisibilityConverter}, Mode=OneWay}">
+                    <Run x:Uid="CreatePlaylistPage_FoldersCountTextBlock" Text="Folders: " />
+                    <Run Text="{x:Bind ViewModel.FolderCount, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock Foreground="{StaticResource LightSubtleBrush}" HorizontalAlignment="Center" Margin="0, 2, 0, 0" Visibility="{x:Bind ViewModel.FileCount, Converter={StaticResource IntToVisibilityConverter}, Mode=OneWay}">
+                    <Run x:Uid="CreatePlaylistPage_FilesCountTextBlock" Text="Files: " />
+                    <Run Text="{x:Bind ViewModel.FileCount, Mode=OneWay}" />
+                </TextBlock>
+            </StackPanel>
+
+            <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0, 12" Visibility="{x:Bind ViewModel.IsFilesProcessing, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Foreground="{StaticResource LightSubtleBrush}">
+                    <Run x:Uid="CreatePlaylistPage_ProcessedFilesTextBlock" Text="Processed Files: " />
+                    <Run Text="{x:Bind ViewModel.ProcessedFilesCount, Mode=OneWay}" />
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0, 12, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Uid="CreatePlaylistPage_BrowseFoldersButton" Background="DodgerBlue" Click="{x:Bind ViewModel.OnBrowseClick}">Browse...</Button>
+            <Button x:Uid="CreatePlaylistPage_CreatePlaylistButton" x:Name="CreatePlaylistButton" Grid.Column="2" IsEnabled="{x:Bind ViewModel.IsTitleAvailable, Mode=OneWay}" Click="{x:Bind ViewModel.OnCreatePlaylistClick}">Create</Button>
+        </Grid>
+    </Grid>
+</Page>

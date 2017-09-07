@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="Ayane.Pages.HelpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Ayane.Controls"
+    mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <PopupThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.RowSpan="2" >
+            <StackPanel Padding="{StaticResource AppSubPagePadding}">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock" x:Key="TitleStyle">
+                        <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="TextWrapping" Value="Wrap" />
+                        <Setter Property="Margin" Value="0, 0, 0, 4" />
+                    </Style>
+
+                    <Style TargetType="TextBlock" x:Key="ContentStyle">
+                        <Setter Property="Foreground" Value="Gray" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="TextWrapping" Value="Wrap" />
+                        <Setter Property="Margin" Value="0, 0, 0, 8" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock x:Uid="HelpPage_Question_SwitchToPlayerInterface" Text="How can I switch to the player interface?" Style="{StaticResource TitleStyle}"/>
+                <TextBlock x:Uid="HelpPage_Answer_SwitchToPlayerInterface" Text="Just double tap the rolling-cover, or scroll up your mouse wheel when the pointer is over the rolling-cover."  Style="{StaticResource ContentStyle}"/>
+
+                <TextBlock x:Uid="HelpPage_Question_PriceDifferences" Text="What's the difference between the free-version and purchased-version?" Style="{StaticResource TitleStyle}"/>
+                <TextBlock x:Uid="HelpPage_Answer_PriceDifferences" Text="There is no difference between the free-version and purchased-version. If you love this app, please buy it. Thank you! :)" Style="{StaticResource ContentStyle}"/>
+
+                <TextBlock x:Uid="HelpPage_Question_DroppingFolders" Text="Why should I import songs by dropping folders?" Style="{StaticResource TitleStyle}"/>
+                <TextBlock x:Uid="HelpPage_Answer_DroppingFolder" Text="As the UWP limitations, apps can't access external files more than 1,000. So, if you drop more than 1,000 files from your personal folders, system will refuse the app to access them. But you can import your media files from the Music Library folder, there are no limiations." Style="{StaticResource ContentStyle}" />
+
+                <TextBlock x:Uid="HelpPage_Question_AboutMe" Style="{StaticResource TitleStyle}" />
+                <TextBlock x:Uid="HelpPage_Answer_AboutMe" Style="{StaticResource ContentStyle}" />
+
+                <TextBlock x:Uid="HelpPage_Title_OtherWorks" Style="{StaticResource TitleStyle}" />
+                <StackPanel Orientation="Horizontal" Margin="0, -4, 0, 0">
+                    <StackPanel.Resources>
+                        <Style TargetType="HyperlinkButton">
+                            <Setter Property="Margin" Value="0, 0, 8, 0" />
+                            <Setter Property="FontSize" Value="13" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <HyperlinkButton NavigateUri="https://itunes.apple.com/us/app/level.4/id1082115711?mt=8">Level.4</HyperlinkButton>
+                    <HyperlinkButton NavigateUri="https://itunes.apple.com/us/app/level.5/id1088733081?mt=12">Level.5</HyperlinkButton>
+                    <HyperlinkButton NavigateUri="https://github.com/UnsignedInt8/LightSword">LightSword</HyperlinkButton>
+                </StackPanel>
+
+                <Grid Height="48" />
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="1" Padding="16, 12" Orientation="Horizontal" Margin="0, 0, 12, 0" Background="{StaticResource BackgroundBrush}">
+            <StackPanel.Resources>
+                <Style TargetType="controls:IconButton">
+                    <Setter Property="Foreground" Value="{StaticResource SubtleBrush}" />
+                    <Setter Property="Margin" Value="0, 0, 20, 0" />
+                </Style>
+            </StackPanel.Resources>
+            <controls:IconButton Width="22" Height="22" Click="Twitter_OnClick" PathData="M405 102q-16.75 24.5-40.5 41.75 0.25 3.5 0.25 10.5 0 32.5-9.5 64.875t-28.875 62.125-46.125 52.625-64.5 36.5-80.75 13.625q-67.75 0-124-36.25 8.75 1 19.5 1 56.25 0 100.25-34.5-26.25-0.5-47-16.125t-28.5-39.875q8.25 1.25 15.25 1.25 10.75 0 21.25-2.75-28-5.75-46.375-27.875t-18.375-51.375v-1q17 9.5 36.5 10.25-16.5-11-26.25-28.75t-9.75-38.5q0-22 11-40.75 30.25 37.25 73.625 59.625t92.875 24.875q-2-9.5-2-18.5 0-33.5 23.625-57.125t57.125-23.625q35 0 59 25.5 27.25-5.25 51.25-19.5-9.25 28.75-35.5 44.5 23.25-2.5 46.5-12.5z"/>
+            <controls:IconButton Width="22" Height="22" Click="Github_OnClick" PathData="M256.004 6.321c-141.369 0-256.004 114.609-256.004 255.999 0 113.107 73.352 209.066 175.068 242.918 12.793 2.369 17.496-5.555 17.496-12.316 0-6.102-0.24-26.271-0.348-47.662-71.224 15.488-86.252-30.205-86.252-30.205-11.641-29.588-28.424-37.458-28.424-37.458-23.226-15.889 1.755-15.562 1.755-15.562 25.7 1.805 39.238 26.383 39.238 26.383 22.836 39.135 59.888 27.82 74.502 21.279 2.294-16.543 8.926-27.84 16.253-34.232-56.865-6.471-116.638-28.425-116.638-126.516 0-27.949 10.002-50.787 26.38-68.714-2.658-6.45-11.427-32.486 2.476-67.75 0 0 21.503-6.876 70.42 26.245 20.418-5.674 42.318-8.518 64.077-8.617 21.751 0.099 43.668 2.943 64.128 8.617 48.867-33.122 70.328-26.245 70.328-26.245 13.936 35.264 5.175 61.3 2.518 67.75 16.41 17.928 26.347 40.766 26.347 68.714 0 98.327-59.889 119.975-116.895 126.312 9.182 7.945 17.362 23.523 17.362 47.406 0 34.254-0.298 61.822-0.298 70.254 0 6.814 4.611 14.797 17.586 12.283 101.661-33.888 174.921-129.813 174.921-242.884 0-141.39-114.617-255.999-255.996-255.999z" Margin="0, 1, 16, 0"/>
+            <controls:IconButton Width="21" Height="21" Click="Mail_OnClick" PathData="M448 177.5v198.5q0 16.5-11.75 28.25t-28.25 11.75h-368q-16.5 0-28.25-11.75t-11.75-28.25v-198.5q11 12.25 25.25 21.75 90.5 61.5 124.25 86.25 14.25 10.5 23.125 16.375t23.625 12 27.5 6.125h0.5q12.75 0 27.5-6.125t23.625-12 23.125-16.375q42.5-30.75 124.5-86.25 14.25-9.75 25-21.75zM448 104q0 19.75-12.25 37.75t-30.5 30.75q-94 65.25-117 81.25-2.5 1.75-10.625 7.625t-13.5 9.5-13 8.125-14.375 6.75-12.5 2.25h-0.5q-5.75 0-12.5-2.25t-14.375-6.75-13-8.125-13.5-9.5-10.625-7.625q-22.75-16-65.5-45.625t-51.25-35.625q-15.5-10.5-29.25-28.875t-13.75-34.125q0-19.5 10.375-32.5t29.625-13h368q16.25 0 28.125 11.75t11.875 28.25z" Margin="6, 2, 20, 0"/>
+
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="8" />
+                        <Setter Property="Foreground" Value="{StaticResource SubtleBrush}" />
+                        <Setter Property="FontWeight" Value="Light" />
+                        <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock Text="Design &amp; Coding" Margin="0, 1, 0, 0"/>
+                <TextBlock Text="UnsignedInt8 " Margin="0, -1, 0, 0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

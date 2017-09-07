@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Ayane.Pages.SleepingModePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=SleepingModeViewModel}"
+    mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <PopupThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid Background="{StaticResource BackgroundBrush}" Padding="{StaticResource AppSubPagePadding}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Path Grid.Row="1" Fill="LightGray" Opacity=".2" Height="180" Margin="-32, 20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Data="M348.64 242.368c0 241.6 165.728 437.44 370.144 437.44 50.816 0 99.232-12.16 143.328-34.016-54.24 142.72-191.872 244.352-353.632 244.352-209.056 0-378.56-169.504-378.56-378.56 0-154.24 92.416-286.688 224.736-345.696-3.712 24.896-6.016 50.336-6.016 76.48z" />
+        
+        <StackPanel Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Foreground" Value="Gray" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+                </Style>
+            </StackPanel.Resources>
+            
+            <TextBlock x:Uid="SleepingModePage_IntroductionTextBlock" Text="Stop the playback when timer ends" />
+            <TextBlock Visibility="{x:Bind ViewModel.IsSleepingModeStarted, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
+                <Run x:Uid="SleepingModePage_BeenStartedTextBlock" Text="The Sleeping Mode has been started. " />
+                <Hyperlink Click="{x:Bind ViewModel.OnCancelClick}">
+                    <Run x:Uid="SleepingModePage_CancelTextBlock" Text="CANCEL" />
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <Grid x:Name="TimeContainer" VerticalAlignment="Center" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBox InputScope="Number" HorizontalAlignment="Right" FontSize="48" MaxLength="3" PlaceholderText="30" Text="{x:Bind ViewModel.UserDefinedNumber, Mode=TwoWay}" Foreground="{StaticResource AccentBrush}"/>
+            <StackPanel HorizontalAlignment="Left" Grid.Column="1" Padding="8, 14, 0, 0">
+                <RadioButton x:Uid="SleepingModePage_MinutesModeButton" Content="Minutes" HorizontalAlignment="Left" IsChecked="{x:Bind ViewModel.IsMinutesMode, Mode=TwoWay}" FontSize="15"/>
+                <RadioButton x:Uid="SleepingModePage_SongsCountModeButton" Content="Songs" HorizontalAlignment="Left" IsChecked="{x:Bind ViewModel.IsSongsCountMode, Mode=TwoWay}" FontSize="15"/>
+            </StackPanel>
+        </Grid>
+
+        <Button x:Uid="SleepingModePage_OkButton" Grid.Row="2" Content="OK" Command="{x:Bind ViewModel.StartCommand}" Click="SleepingMode_OnClick"/>
+    </Grid>
+</Page>

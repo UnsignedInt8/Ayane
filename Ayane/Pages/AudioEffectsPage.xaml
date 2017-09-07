@@ -1,0 +1,108 @@
+﻿<Page
+    x:Class="Ayane.Pages.AudioEffectsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ayane.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=AudioEffectsViewModel}"
+    mc:Ignorable="d">
+    
+    <Page.Transitions>
+        <TransitionCollection>
+            <PopupThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" Background="{StaticResource BackgroundBrush}">
+        <StackPanel Padding="{StaticResource AppSubPagePadding}">
+            <StackPanel.Resources>
+
+                <Style TargetType="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="0, -10, 0, 0" />
+                    <Setter Property="Foreground" Value="{StaticResource SubtleBrush}" />
+                    <Setter Property="FontSize" Value="13" />
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+                </Style>
+
+                <Style TargetType="Slider" BasedOn="{StaticResource SliderStyle}">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Maximum" Value="100" />
+                    <Setter Property="Minimum" Value="0" />
+                </Style>
+
+                <Style TargetType="Grid" x:Key="ContainerGridStyle">
+                    <Setter Property="Margin" Value="0, 0, 0, 16" />
+                    <Setter Property="Opacity" Value="0" />
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </StackPanel.Resources>
+
+            <ToggleSwitch x:Uid="AudioEffectsPage_EqualizerSwitch" x:Name="EqualizerSwitch" Header="Equalizer" Toggled="Equalizer_OnToggled" IsOn="{x:Bind ViewModel.IsEqualizerEnabled, Mode=TwoWay}"/>
+            <Grid x:Name="EqualizerContainer" Style="{StaticResource ContainerGridStyle}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="100Hz" Grid.Row="0" Grid.Column="0"/>
+                <Slider Grid.Row="0" Grid.Column="1" Maximum="100" Minimum="1" Value="{x:Bind ViewModel.EQ100HzGain, Mode=TwoWay}"/>
+
+                <TextBlock Text="900Hz" Grid.Row="1" Grid.Column="0" />
+                <Slider Grid.Row="1" Grid.Column="1" Maximum="100" Minimum="1" Value="{x:Bind ViewModel.EQ900HzGain, Mode=TwoWay}"/>
+
+                <TextBlock Text="5kHz" Grid.Row="2" Grid.Column="0" />
+                <Slider Grid.Row="2" Grid.Column="1" Maximum="100" Minimum="1" Value="{x:Bind ViewModel.EQ5kHzGain, Mode=TwoWay}"/>
+
+                <TextBlock Text="12kHz" Grid.Row="3" Grid.Column="0" />
+                <Slider Grid.Row="3" Grid.Column="1" Maximum="100" Minimum="1" Value="{x:Bind ViewModel.EQ12kHzGain, Mode=TwoWay}"/>
+            </Grid>
+
+            <ToggleSwitch x:Uid="AudioEffectsPage_EchoSwitch" x:Name="EchoSwitch" Header="Echo" Toggled="EchoSwitch_OnToggled" IsOn="{x:Bind ViewModel.IsEchoEnabled, Mode=TwoWay}"/>
+            <Grid x:Name="EchoContainer" Style="{StaticResource ContainerGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Uid="AudioEffectsPage_EchoDelayTextBlock" Text="Delay(ms)" />
+                <Slider Grid.Column="1" Maximum="2000" Minimum="50" IsThumbToolTipEnabled="True" Value="{x:Bind ViewModel.EchoDelay, Mode=TwoWay}"/>
+            </Grid>
+
+            <ToggleSwitch x:Uid="AudioEffectsPage_LimiterSwitch" x:Name="LimiterSwitch" Header="Limiter" Toggled="LimiterSwitch_OnToggled" IsOn="{x:Bind ViewModel.IsLimiterEnabled, Mode=TwoWay}"/>
+            <Grid x:Name="LimiterContainer" Style="{StaticResource ContainerGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Uid="AudioEffectsPage_LimiterLoudnessTextBlock" Text="Loudness" />
+                <Slider Grid.Column="1" Maximum="1800" Minimum="1" IsThumbToolTipEnabled="True" Value="{x:Bind ViewModel.LimiterLoudness, Mode=TwoWay}" />
+            </Grid>
+
+            <ToggleSwitch x:Uid="AudioEffectsPage_ReverbSwitch" x:Name="ReverbSwitch" Header="Reverb" Toggled="ReverbSwitch_OnToggled" IsOn="{x:Bind ViewModel.IsReverbEnabled, Mode=TwoWay}"/>
+            <Grid x:Name="ReverbContainer" Style="{StaticResource ContainerGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Uid="AudioEffectsPage_ReverbDecayTextBlock" Text="Decay" />
+                <Slider Grid.Column="1" Maximum="20" Minimum="1" IsThumbToolTipEnabled="True" Value="{x:Bind ViewModel.ReverbDecayTime, Mode=TwoWay}"/>
+            </Grid>
+        
+            <TextBlock x:Uid="AudioEffectsPage_NoteTextBlock" x:Name="EffectsNoteTextBlock" Text="Supported formats: MP3, WMA, M4A, WAV" FontSize="12" Foreground="LightGray" Margin="0, 10, 0, 0" HorizontalAlignment="Right"/>
+
+        </StackPanel>
+
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitleTextBlock.Text" xml:space="preserve">
+    <value>上月绫音</value>
+  </data>
+  <data name="AudioEffectsPage_EchoDelayTextBlock.Text" xml:space="preserve">
+    <value>延迟(毫秒)</value>
+  </data>
+  <data name="AudioEffectsPage_EchoSwitch.Header" xml:space="preserve">
+    <value>回音</value>
+  </data>
+  <data name="AudioEffectsPage_EqualizerSwitch.Header" xml:space="preserve">
+    <value>均衡器</value>
+  </data>
+  <data name="AudioEffectsPage_LimiterLoudnessTextBlock.Text" xml:space="preserve">
+    <value>响度</value>
+  </data>
+  <data name="AudioEffectsPage_LimiterSwitch.Header" xml:space="preserve">
+    <value>限幅器</value>
+  </data>
+  <data name="AudioEffectsPage_NoteTextBlock.Text" xml:space="preserve">
+    <value>支持格式: MP3, WMA, M4A, WAV</value>
+  </data>
+  <data name="AudioEffectsPage_ReverbDecayTextBlock.Text" xml:space="preserve">
+    <value>衰减(秒)</value>
+  </data>
+  <data name="AudioEffectsPage_ReverbSwitch.Header" xml:space="preserve">
+    <value>混响</value>
+  </data>
+  <data name="ContextMenuItem_BrowseInFileExplorer.Text" xml:space="preserve">
+    <value>浏览文件...</value>
+  </data>
+  <data name="ContextMenuItem_Delete.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="ContextMenuItem_PlaylistSyncWithFolders.Text" xml:space="preserve">
+    <value>同步播放列表</value>
+  </data>
+  <data name="ContextMenuItem_Remove.Text" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="CreatePlaylistPage_BrowseFoldersButton.Content" xml:space="preserve">
+    <value>浏览...</value>
+  </data>
+  <data name="CreatePlaylistPage_CreatePlaylistButton.Content" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="CreatePlaylistPage_CreatePlaylistTitleTextBox.Header" xml:space="preserve">
+    <value>创建播放列表</value>
+  </data>
+  <data name="CreatePlaylistPage_CreatePlaylistTitleTextBox.PlaceholderText" xml:space="preserve">
+    <value>播放列表名称 （必填）</value>
+  </data>
+  <data name="CreatePlaylistPage_DragFolderHereTipTextBlock.Text" xml:space="preserve">
+    <value>请将媒体文件夹拖拽到这里</value>
+  </data>
+  <data name="CreatePlaylistPage_FilesCountTextBlock.Text" xml:space="preserve">
+    <value>媒体文件: </value>
+  </data>
+  <data name="CreatePlaylistPage_FoldersCountTextBlock.Text" xml:space="preserve">
+    <value>文件夹: </value>
+  </data>
+  <data name="CreatePlaylistPage_ProcessedFilesTextBlock.Text" xml:space="preserve">
+    <value>已扫描: </value>
+  </data>
+  <data name="Drawer_MyPlaylistsHeaderTextBlock.Text" xml:space="preserve">
+    <value>播放列表</value>
+  </data>
+  <data name="FirstLaunchPage_EnjoyMusicTextBlock.Text" xml:space="preserve">
+    <value>聆听美好音乐世界</value>
+  </data>
+  <data name="FirstLaunchPage_WelcomeTextBlock.Text" xml:space="preserve">
+    <value>上月绫音</value>
+  </data>
+  <data name="HelpPage_Answer_AboutMe.Text" xml:space="preserve">
+    <value>我是UWP开发者，如果你缺少UWP开发人员，可以联系我。另外我曾经开发有iOS平台的Level.4和macOS平台的Level.5，它们都是基于Apple Network Extension API开发的网络安全工具（你懂的）。服务器端熟悉Node.js，基于Node.js的开源SOCKS5代理服务器LightSword也是由本人开发，通过访问我的Github即可查看。</value>
+  </data>
+  <data name="HelpPage_Answer_DroppingFolder.Text" xml:space="preserve">
+    <value>是的，请一定通过文件夹导入歌曲。因为UWP应用程序最多只能访问1000个外部文件，如果超出限制，系统将拒绝应用程序访问更多的外部文件。</value>
+  </data>
+  <data name="HelpPage_Answer_PriceDifferences.Text" xml:space="preserve">
+    <value>免费版和付费版没有区别，如果你喜欢这款App，请购买表示支持，谢谢。</value>
+  </data>
+  <data name="HelpPage_Answer_SwitchToPlayerInterface.Text" xml:space="preserve">
+    <value>双击主界面转动的圆形歌曲封面，或者把鼠标移动到圆形封面上，指针保持不动，向上滚动鼠标滚轮。</value>
+  </data>
+  <data name="HelpPage_Question_AboutMe.Text" xml:space="preserve">
+    <value>关于作者</value>
+  </data>
+  <data name="HelpPage_Question_DroppingFolders.Text" xml:space="preserve">
+    <value>一定要通过文件夹导入歌曲吗？</value>
+  </data>
+  <data name="HelpPage_Question_PriceDifferences.Text" xml:space="preserve">
+    <value>免费版和付费版有什么区别？</value>
+  </data>
+  <data name="HelpPage_Question_SwitchToPlayerInterface.Text" xml:space="preserve">
+    <value>如何切换到播放器界面？</value>
+  </data>
+  <data name="HelpPage_Title_OtherWorks.Text" xml:space="preserve">
+    <value>相关链接</value>
+  </data>
+  <data name="MessageBox_Message_DeletePlaylist" xml:space="preserve">
+    <value>确定删除该播放列表？</value>
+  </data>
+  <data name="MessageBox_Message_ListUpdating" xml:space="preserve">
+    <value>列表更新中...</value>
+  </data>
+  <data name="MessageBox_Message_ProcessedFiles" xml:space="preserve">
+    <value>已处理: </value>
+  </data>
+  <data name="MessageBox_Message_RemoveSong" xml:space="preserve">
+    <value>确定移除该曲目？</value>
+  </data>
+  <data name="MessageBox_Message_SyncPlaylist" xml:space="preserve">
+    <value>正在同步，请稍等...</value>
+  </data>
+  <data name="MessageBox_Message_TokensAlmostFull" xml:space="preserve">
+    <value>您已经导入了{0}首歌曲，如果继续导入歌曲文件，并且超过1000个文件限制，应用程序将无法再导入任何歌曲。请将歌曲文件放入音乐库，这样就不会有任何限制。</value>
+  </data>
+  <data name="MessageBox_Message_TokensFull" xml:space="preserve">
+    <value>UWP 应用程序仅能 记录1000个外部文件。您已经使用了所有的记录空间，无法再导入新的歌曲。请将歌曲文件放入音乐库，这样就可以无限制地导入歌曲。</value>
+  </data>
+  <data name="MessageBox_Title_DeletePlaylist" xml:space="preserve">
+    <value>删除播放列表</value>
+  </data>
+  <data name="MessageBox_Title_JustAMinute" xml:space="preserve">
+    <value>处理中</value>
+  </data>
+  <data name="MessageBox_Title_NegativeButton" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="MessageBox_Title_PositiveButton" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="MessageBox_Title_RemoveSong" xml:space="preserve">
+    <value>移除歌曲</value>
+  </data>
+  <data name="MessageBox_Title_SyncPlaylist" xml:space="preserve">
+    <value>同步播放列表</value>
+  </data>
+  <data name="MessageBox_Title_Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Message_NoFoldersToSync" xml:space="preserve">
+    <value>该播放列表没有可以同步的文件夹</value>
+  </data>
+  <data name="Message_PlaylistTitleExist" xml:space="preserve">
+    <value>播放列表名称已经存在</value>
+  </data>
+  <data name="SettingsPage_AutoPlaySwitch.Header" xml:space="preserve">
+    <value>程序启动后自动播放音乐</value>
+  </data>
+  <data name="SettingsPage_KeepScreenOn.Header" xml:space="preserve">
+    <value>保持屏幕常亮</value>
+  </data>
+  <data name="SleepingModePage_BeenStartedTextBlock.Text" xml:space="preserve">
+    <value>睡眠模式已经开启。点此</value>
+  </data>
+  <data name="SleepingModePage_CancelTextBlock.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="SleepingModePage_IntroductionTextBlock.Text" xml:space="preserve">
+    <value>自动停止音乐播放</value>
+  </data>
+  <data name="SleepingModePage_MinutesModeButton.Content" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="SleepingModePage_OkButton.Content" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="SleepingModePage_SongsCountModeButton.Content" xml:space="preserve">
+    <value>曲目</value>
+  </data>
+  <data name="Text_Album" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="Text_Albums" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="Text_Artist" xml:space="preserve">
+    <value>歌手</value>
+  </data>
+  <data name="Text_Artists" xml:space="preserve">
+    <value>歌手</value>
+  </data>
+  <data name="Text_Song" xml:space="preserve">
+    <value>曲目</value>
+  </data>
+  <data name="Text_Songs" xml:space="preserve">
+    <value>曲目</value>
+  </data>
+  <data name="Text_Title_App" xml:space="preserve">
+    <value>上月绫音</value>
+  </data>
+  <data name="Text_Title_AudioEffects" xml:space="preserve">
+    <value>音效</value>
+  </data>
+  <data name="Text_Title_Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Text_Title_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Text_Title_SleepingMode" xml:space="preserve">
+    <value>睡眠模式</value>
+  </data>
+  <data name="ToolTip_AudioEffects.Text" xml:space="preserve">
+    <value>音效</value>
+  </data>
+  <data name="ToolTip_Help.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="ToolTip_NewPlaylist.Text" xml:space="preserve">
+    <value>新建播放列表</value>
+  </data>
+  <data name="ToolTip_Settings.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="ToolTip_SleepingMode.Text" xml:space="preserve">
+    <value>睡眠模式</value>
+  </data>
+  <data name="TopContentPage_AlbumsPivotItem.Header" xml:space="preserve">
+    <value>专辑</value>
+  </data>
+  <data name="TopContentPage_ArtistPivotItem.Header" xml:space="preserve">
+    <value>歌手</value>
+  </data>
+  <data name="TopContentPage_GenresPivotItem.Header" xml:space="preserve">
+    <value>流派</value>
+  </data>
+  <data name="TopContentPage_SongsListViewTip_DropFolders.Text" xml:space="preserve">
+    <value>注意: 请尽量拖拽文件夹，不要直接拖拽歌曲文件</value>
+  </data>
+  <data name="TopContentPage_SongsPivotItem.Header" xml:space="preserve">
+    <value>歌曲</value>
+  </data>
+</root>
