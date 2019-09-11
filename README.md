@@ -12,7 +12,7 @@ Windows 10 音乐播放器
 
 如有人要接手，可以加Telegram群，我提供部分代码解释，但不会参与编码工作
 
-[Telegram Group](https://t.me/joinchat/CdVYkA3SI3pawafKDRC4Pw)
+~~[Telegram Group](https://t.me/joinchat/CdVYkA3SI3pawafKDRC4Pw)~~
 
 License
 ---
